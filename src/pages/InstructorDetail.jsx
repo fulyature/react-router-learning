@@ -1,11 +1,24 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const InstructorDetail = () => {
-  let param = useParams();
+  let { id } = useParams();
 
-  console.log(param);
-  return <div>InstructorDetail</div>;
+  let { state, pathname } = useLocation();
+  console.log(state);
+  return (
+    <div className="p-3">
+      <p>
+        from useParam:ı am ınstructer
+        <span className="text-danger fw-bolder">{id}</span>
+      </p>
+      <p>
+        from useLocation:ı am ınstructer
+        <span className="text-danger fw-bolder">{state.name}</span>
+      </p>
+      <p>out pats is:{pathname}</p>
+    </div>
+  );
 };
 
 export default InstructorDetail;
